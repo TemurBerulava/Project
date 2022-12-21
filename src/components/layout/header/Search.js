@@ -5,7 +5,8 @@ import { useState } from 'react'
 import instance from '../../../app/instance'
 
 const Search = () => {
-    const [value,setValue] = useState("")
+    const [value,setValue] = useState("");
+    
     useEffect(() => {
         const timerId = setTimeout(() => {
             const filterByName = async() => {

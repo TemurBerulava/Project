@@ -7,10 +7,10 @@ import PaginationComponent from './Pagination';
 import Sort from './Sort';
 
 const CategoryProduct = () => {
+  const { categoryName } = useParams();
   const {value: page, updateParam: updatePage} = useQueryParams('page')
   const {value: sort, updateParam: changeSort} = useQueryParams('sort')
-    const { categoryName } = useParams();
-    const { data } = useAxios(`/products/categories/${categoryName}?page=${page}1&size=3&sort=${sort}`);
+    const { data } = useAxios(`/products/categories/${categoryName}?page=${page}1&size=5&sort=${sort}`);
   return (
     <div>
       <PaginationComponent  totalPages={data.totalPages} page={page} changePage={updatePage}/>

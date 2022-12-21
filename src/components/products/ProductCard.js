@@ -14,6 +14,7 @@ const ProductCard = ({product}) => {
   const { getData, setSelectedProduct } = useContext(ProductContext)
   const location = useLocation();
   const navigate = useNavigate();
+
   const onRatingChange = async(e) => {
     e.preventDefault();
     setProductRating(e.target.value)
@@ -35,7 +36,8 @@ const ProductCard = ({product}) => {
     <Card>
         <CardContent>
             <img  src={product.image} width='100' height='100'/>
-            <Link to = {`/products/categories/${product.category}/${product.name}`} state={{id: product._id, category: product.category}}>
+            <Link to = {`/products/categories/${product.category}/${product.name}`} 
+            state={{id: product._id, category: product.category}}>
                 <Typography>{product.name}</Typography>
             </Link>
             <Typography>
@@ -58,7 +60,7 @@ const ProductCard = ({product}) => {
             <Button onClick={() => addToCart(product)}>Добавить в корзину
             </Button>
           )}
-          {isUserAdmin() && <Button onClick={(e) => onEditHandler(e,product)}>Edit</Button>}
+          {isUserAdmin() && <Button onClick={(e) => onEditHandler(e,product)}>Редактировать</Button>}
         </CardActions>
     </Card>
   )

@@ -16,8 +16,8 @@ const useForm = ({ defaultFormValues }) => {
         })
     }
 
-    const checkButtonDisable =(values) => {
-        for(const[key,objValue] of Object.entries(values)){
+    const checkButtonDisable = (values) => {
+        for (const[key, objValue] of Object.entries(values)){
             if(objValue.required && (objValue.error || !objValue.value)){
                 return true;
             }

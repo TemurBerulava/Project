@@ -6,8 +6,8 @@ export const instance = axios.create({
 })
 
 instance.interceptors.request.use(async(req) => {
-    const token = localStorage.getItem('token')
-    const refresh_token = localStorage.getItem('refresh_token')
+    const token = localStorage.getItem('token');
+    const refresh_token = localStorage.getItem('refresh_token');
     if(!token){
         return req;
     }

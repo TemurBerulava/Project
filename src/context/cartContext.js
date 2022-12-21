@@ -48,10 +48,10 @@ export const CartContextProvider = ({children}) => {
         dispatch({type: REMOVE_FROM_CART, payload: id})
     }
 
-    const saveTocart = async(userId) => {
+    const saveTocart = async (userId) => {
         try {
-            await instance.put(`/users/${userId}/cart`, {product: cartState.cart})
-            localStorage.removeItem("cart")
+            await instance.put(`/users/${userId}/cart`, {products: cartState.cart});
+            localStorage.removeItem("cart");
         } catch (error) {
             
         }

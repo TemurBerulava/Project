@@ -3,9 +3,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link,
-  useParams,
-  useNavigate,
 } from "react-router-dom";
 import "./App.css";
 
@@ -18,11 +15,11 @@ import { UserContextProvider } from "./context/userContext";
 import  ProtectedRoute  from "./app/ProtectedRoute";
 import { isUserAdmin } from "./app/util";
 import Layout from "./components/layout";
+import CategoryProducts from './components/products/CategoryProduct';
 import { ProductContextProvider } from "./context/ProductContext";
 import SingleProductPage from "./pages/SingleProductPage";
 import { CartContextProvider } from "./context/cartContext";
 import CartPage from "./pages/CartPage";
-
 const App = () => {
   const isAdmin = isUserAdmin();
   return (
@@ -37,10 +34,10 @@ const App = () => {
           <Route path="/register" element={<RegisterPage></RegisterPage>} ></Route>
           <Route path="/profile/:name/" element={<ProfilePage></ProfilePage>} ></Route>
           <Route path="/cart" element={<CartPage/>}></Route>
-          <Route path="/products/categories/:categoryName" element={<></>} ></Route>
-          <Route path="/products/categories/:categoryName/:productName" element={<SingleProductPage/>}></Route>
+          <Route path="/products/categories/:categoryName" element={<CategoryProducts></CategoryProducts>} ></Route>
+          <Route path="/products/categories/:categoryName/:productName" element={<SingleProductPage></SingleProductPage>}></Route>
           <Route path="/products/new" element={  <ProtectedRoute hasAccess={isAdmin}> <ProductsFormPage /> </ProtectedRoute>}/>
-          <Route path="/products/:id/edit" element={<ProtectedRoute hasAccess={true}> <ProductsFormPage /></ProtectedRoute>}/>
+          <Route path="/products/:id/edit" element={<ProtectedRoute hasAccess={isAdmin}> <ProductsFormPage /></ProtectedRoute>}/>
         </Routes>
         </Layout>
         </CartContextProvider>
