@@ -5,7 +5,7 @@ import Loading from '../share/loading';
 
 const SingleProduct = () => {
     const location = useLocation();
-    const { id, category } = location.state();
+    const { id, category } = location.state;
     const { data, loading } = useAxios(`/products/category/${category}/${id}`);
     if(loading){
         return <Loading />

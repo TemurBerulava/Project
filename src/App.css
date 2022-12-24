@@ -1,3 +1,55 @@
 .navbar-nav a{
   font-size:18px;
 }
+div{
+  background-color:lightgray;
+  margin: 5px;
+  padding: 5px;
+  
+}
+p{
+  color:red;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Finger+Paint);
+
+h1 {
+  color:black;
+  display: inline-block;
+  text-shadow:blue;
+  animation: smoky 8s 3s both;
+  animation-iteration-count: infinite;
+}
+
+h1:nth-child(even){
+  animation-name: smoky-mirror;
+}
+
+@keyframes smoky {
+  60% {
+    text-shadow: 0 0 40px blue;
+  }
+  to {
+    transform:
+      translate3d(15rem,-8rem,0)
+      rotate(-40deg)
+      skewX(70deg)
+      scale(1.5);
+    text-shadow: 0 0 20px blue;
+    opacity: 0;
+  }
+}
+
+@keyframes smoky-mirror {
+  60% {
+    text-shadow: 0 0 40px blue; }
+  to {
+    transform:
+      translate3d(18rem,-8rem,0)
+      rotate(-40deg) 
+      skewX(-70deg)
+      scale(2);
+     text-shadow: 0 0 20px blue;
+    opacity: 0;
+  }
+}

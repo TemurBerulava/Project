@@ -7,7 +7,7 @@ const Sort = ({ sort,changeSort,changePage }) => {
     style={{marginTop: "20px"}}
      onChange={(e) =>{
         changeSort('sort', e.target.value);
-        changePage({page: 1})
+        changePage({page: 4})
 
     }}>
         <MenuItem value={'price,desc'}>Уменьшении цены</MenuItem>

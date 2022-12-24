@@ -1,6 +1,6 @@
-import { Button, Card, CardActions, CardContent, Link, Rating, Typography } from '@mui/material'
+import { Button, Card, CardActions, CardContent, Rating, Typography } from '@mui/material'
 import React, { useContext, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate , Link } from 'react-router-dom';
 import { instance } from '../../app/instance';
 import { ProductContext } from '../../context/ProductContext'
 import { userContext } from '../../context/userContext';
@@ -17,7 +17,7 @@ const ProductCard = ({product}) => {
 
   const onRatingChange = async(e) => {
     e.preventDefault();
-    setProductRating(e.target.value)
+    setProductRating(+e.target.value)
     try {
       await instance.post(`/products/${product._id}/users/${userData._id}/rate`,{rating: +e.target.value})
       const endpoint = location.pathname !=='/' ? `${location.pathname}${location.search}` : '/products'
@@ -30,7 +30,7 @@ const ProductCard = ({product}) => {
   const onEditHandler =(e, product) => {
     e.preventDefault();
     setSelectedProduct(product)
-    navigate(`/products/${product._id}edit`)
+    navigate(`/products/${product._id}/edit`)
   }
   return (
     <Card>

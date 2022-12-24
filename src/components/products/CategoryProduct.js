@@ -10,7 +10,7 @@ const CategoryProduct = () => {
   const { categoryName } = useParams();
   const {value: page, updateParam: updatePage} = useQueryParams('page')
   const {value: sort, updateParam: changeSort} = useQueryParams('sort')
-    const { data } = useAxios(`/products/categories/${categoryName}?page=${page}1&size=5&sort=${sort}`);
+    const { data } = useAxios(`/products/categories/${categoryName}?page=${page}&size=5&sort=${sort}`);
   return (
     <div>
       <PaginationComponent  totalPages={data.totalPages} page={page} changePage={updatePage}/>

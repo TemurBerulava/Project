@@ -5,7 +5,7 @@ const PaginationComponent = ({ totalPages,page,changePage }) => {
   return (
     <Pagination  count={totalPages} page={page}
     onChange={(_,value) => {
-        changePage('page',+value)
+        changePage('page', +value)
     }}    
     />
   )
