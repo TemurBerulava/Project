@@ -20,6 +20,7 @@ import { ProductContextProvider } from "./context/ProductContext";
 import SingleProductPage from "./pages/SingleProductPage";
 import { CartContextProvider } from "./context/cartContext";
 import CartPage from "./pages/CartPage";
+
 const App = () => {
   const isAdmin = isUserAdmin();
   return (
@@ -43,7 +44,10 @@ const App = () => {
         </CartContextProvider>
         </ProductContextProvider>
       </UserContextProvider>
-    </Router>
+    </Router> 
+
+
+    
   );
 };
 

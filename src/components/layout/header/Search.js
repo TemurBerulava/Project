@@ -5,7 +5,7 @@ import { useState } from 'react'
 import instance from '../../../app/instance'
 
 const Search = () => {
-    const [value,setValue] = useState("");
+    const [value,setValue] = useState("data");
     
     useEffect(() => {
         const timerId = setTimeout(() => {
@@ -15,14 +15,14 @@ const Search = () => {
             if(value){
                 filterByName()
             }
-        },500)
+        },500);
         return () => {
             clearTimeout(timerId)
         }
     },[value])
   return (
    <TextField value={value} onChange={(e) => setValue(e.target.value)}/>
-  )
+ )
 }
 
 export default Search

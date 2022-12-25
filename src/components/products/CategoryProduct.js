@@ -8,13 +8,13 @@ import Sort from './Sort';
 
 const CategoryProduct = () => {
   const { categoryName } = useParams();
-  const {value: page, updateParam: updatePage} = useQueryParams('page')
-  const {value: sort, updateParam: changeSort} = useQueryParams('sort')
-    const { data } = useAxios(`/products/categories/${categoryName}?page=${page}&size=5&sort=${sort}`);
+  const {value: page, updateParam: updatePage} = useQueryParams("page");
+  const {value: sort, updateParam: updateSort} = useQueryParams('sort')
+    const { data } = useAxios(`/products/categories/${categoryName}?page=${page}&size=3&sort=${sort}asc`);
   return (
     <div>
       <PaginationComponent  totalPages={data.totalPages} page={page} changePage={updatePage}/>
-      <Sort  sort={sort} changePage={updatePage} changeSort={changeSort}/>
+      <Sort  sort={sort} changePage={updatePage} changeSort={updateSort}/>
       <CategoryProductList data ={data} />
     </div>
   )

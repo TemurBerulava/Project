@@ -6,7 +6,7 @@ const Sort = ({ sort,changeSort,changePage }) => {
     <Select value={sort}
     style={{marginTop: "20px"}}
      onChange={(e) =>{
-        changeSort('sort', e.target.value);
+      changeSort('sort', e.target.value);
         changePage({page: 4})
 
     }}>
