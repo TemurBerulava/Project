@@ -9,7 +9,7 @@ import Sort from './Sort';
 const CategoryProduct = () => {
   const { categoryName } = useParams();
   const {value: page, updateParam: updatePage} = useQueryParams("page");
-  const {value: sort, updateParam: updateSort} = useQueryParams('sort')
+  const {value: sort, updateParam: updateSort} = useQueryParams("sort");
     const { data } = useAxios(`/products/categories/${categoryName}?page=${page}&size=3&sort=${sort}asc`);
   return (
     <div>
