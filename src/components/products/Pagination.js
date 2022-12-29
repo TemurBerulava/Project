@@ -6,6 +6,7 @@ const PaginationComponent = ({ totalPages, page, changePage }) => {
     <Pagination  count={totalPages} page={page}
     onChange={(_,value) => {
         changePage("page", +value);
+        console.log(+value)
     }}    
     />
   )

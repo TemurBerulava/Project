@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { isUserAdmin } from "../../../app/util";
 import { userContext } from "../../../context/userContext";
+import Search from "./Search";
 
 const Header = () => {
   const { userData, logout } = useContext(userContext);
@@ -12,7 +13,7 @@ const Header = () => {
       <br />
       <Link to="/">Домой</Link>
       <br />
-      <TextField />
+      <Search />
       {isUserAdmin() && <Link to="/products/new">Добавить новый продукт</Link>}
       {userData ? (
         <>
